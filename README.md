@@ -21,4 +21,7 @@ Welcome to my CodSoft Machine Learning Internship repository! This repository co
 
 If you have any questions or feedback, feel free to reach out. Thank you for visiting my internship repository!
 
+🌐 LinkedIn: https://www.linkedin.com/in/subramanian-s-ab94302a1/
+📧 Email: subramanian160104@gmail.com
+
 Happy Exploring! 🚀👩‍💻👨‍💻
