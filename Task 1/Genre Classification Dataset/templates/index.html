@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Genre Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/static/Bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+
+        #predictionResult {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Movie Genre Prediction</h1>
+        <form id="movieForm">
+            <div class="form-group">
+                <label for="description">Enter Movie Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" cols="50"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="predictMovie()">Predict Genre</button>
+        </form>
+        <p id="predictionResult" class="mt-3"></p>
+    </div>
+
+    <script>
+        function predictMovie() {
+            var description = document.getElementById("description").value;
+            fetch('/predict_movie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    description: description
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("predictionResult").innerText = "Predicted Genre: " + data.prediction;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    <!-- Bootstrap JS (optional, only if you need Bootstrap JavaScript features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
