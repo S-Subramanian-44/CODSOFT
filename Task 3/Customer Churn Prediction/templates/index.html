@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Customers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Churn Customers Predictions</h1>
+        <p><b>Model accuracy :</b></p>
+        <p>Accuracy: {{ accuracy }}</p>
+        <p>Precision: {{ precision }}</p>
+        <p>Recall: {{ recall }}</p>
+        <p>F1-score: {{ f1 }}</p>
+        <h2>Churn Customers Table</h2>
+
+    {% if churn_customers %}
+        {{ churn_customers|safe }}
+    {% else %}
+        <p>No churn customers found</p>
+    {% endif %}
+</body>
+</html>
