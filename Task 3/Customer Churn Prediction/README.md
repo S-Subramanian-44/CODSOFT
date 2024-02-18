@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Flask web application is developed to predict customer churn for subscription-based services or businesses. The model utilizes historical customer data, incorporating features like usage behavior and customer demographics. Various machine learning algorithms, including Logistic Regression, Random Forests, and Gradient Boosting, are explored to predict churn patterns effectively.
+This Flask web application is developed to predict customer churn for subscription-based services or businesses. The model utilizes historical customer data, incorporating features like usage behavior and customer demographics. Machine learning algorithm, Gradient Boosting, are explored to predict churn patterns effectively.
 
 ### Dataset
 Link to dataset: [Churn_Modelling.csv](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction)
